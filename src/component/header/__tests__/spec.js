@@ -1,8 +1,8 @@
-import App from './App';
+import Header from '../index';
 import { shallow } from 'enzyme';
 import React from 'react';
 
-describe('App Component', () => {
+describe('Header Component', () => {
     it('Should render without errors', () => {
     });
 });
