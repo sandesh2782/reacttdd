@@ -1,9 +1,9 @@
-import Header from '../index';
+import Header from '..';
 import { shallow } from 'enzyme';
 import React from 'react';
 import { findByTestAttr } from '../../../../Utils/index';
 
-const setup = (props={}) => {
+const setUp = (props={}) => {
     const component = shallow(<Header {...props} />);
     return component;
 };
@@ -13,7 +13,7 @@ describe('Header component', ()  => {
     let component;
 
     beforeEach(() => {
-        component = setup();
+        component = setUp();
     });    
     
     it('should render without error', () => {
