@@ -1,21 +1,33 @@
 import Header from '../index';
 import { shallow } from 'enzyme';
 import React from 'react';
+import { findByTestAttr } from '../../../../Utils/index';
 
-let wrapper;
-
-beforeEach(() => {
-  wrapper = shallow(<Header />);
-});
+const setup = (props={}) => {
+    const component = shallow(<Header {...props} />);
+    return component;
+};
 
 describe('Header component', ()  => {
+
+    let component;
+
+    beforeEach(() => {
+        component = setup();
+    });    
     
-    it('should have jumbotron image', () => {
-        expect(wrapper.find('img').length).toEqual(1);
+    it('should render without error', () => {
+        const wrapper = findByTestAttr(component, 'headerComponent');
+        expect(wrapper.length).toBe(1);
     });
 
+    it('should have jumbotron image', () => {
+        const wrapper = findByTestAttr(component, 'logoIMG');
+        expect(wrapper.length).toBe(1);
+    });    
+
     it('should have a site label named as `My app`', () => {
-        expect(wrapper.find('label').text()).toEqual('My app');
+        expect(component.find('.siteLabel').text()).toEqual('My app');
     });  
 
 });
